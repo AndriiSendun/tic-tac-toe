@@ -1,0 +1,4 @@
+.game,
+.game__field {
+  display: flex;
+}
