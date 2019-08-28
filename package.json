@@ -1,7 +1,7 @@
 {
   "name": "tic-tac-toe",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@types/jest": "24.0.18",
     "@types/node": "12.7.2",

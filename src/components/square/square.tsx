@@ -8,8 +8,11 @@ interface OwnProps {
 
 const Square: React.FC<OwnProps> = (props: OwnProps): JSX.Element => {
   return (
-    <div className="square">
-
+    <div
+      className="square"
+      onClick={() => console.log(props.number)}
+    >
+      
     </div>
   )
 }

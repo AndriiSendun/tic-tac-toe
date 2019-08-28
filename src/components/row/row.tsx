@@ -9,6 +9,9 @@ import OwnProps from './row.models';
 // COMPONENTS
 import Square from '../square/square';
 
+// STYLE
+import './row.css';
+
 const Row: React.FC<OwnProps> = (props): JSX.Element => {
   const { start, end } = props;
   const rowCounter = createRowCounter(start, end);
