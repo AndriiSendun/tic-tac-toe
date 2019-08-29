@@ -7,7 +7,7 @@ import { createRowCounter } from './options';
 import OwnProps from './row.models';
 
 // COMPONENTS
-import Square from '../square/square';
+import { Square } from '../square';
 
 // STYLE
 import './row.css';

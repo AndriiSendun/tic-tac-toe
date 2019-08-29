@@ -1,8 +1,8 @@
 import React from 'react';
 
 // COMPONENTS
-import Row from '../row/row';
-import GameInfo from '../game-info/game-info';
+import { Row } from '../row';
+import { GameInfo } from '../game-info';
 
 // STYLE
 import './game.css';

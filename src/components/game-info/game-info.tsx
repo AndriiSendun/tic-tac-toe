@@ -1,7 +1,7 @@
 import React from 'react';
 
 // COMPONENTS
-import LogsList from './../logs-list/logs-list';
+import { LogsList } from './../logs-list';
 
 const GameInfo: React.FC = (): JSX.Element => {
   return (

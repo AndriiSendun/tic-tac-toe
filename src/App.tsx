@@ -1,7 +1,7 @@
 import React from 'react';
 
 // COMPONENTS
-import Game from './components/game/game';
+import { Game } from './components/game';
 
 // STYLE
 import './App.css';
