@@ -1,3 +1,5 @@
+import { ActionCreator, Action } from 'redux';
+
 import actionTypes from './game.action-types';
 
-const switchPlayer = () => ({ type: actionTypes.SWITCH_PLAYER });
+const switchPlayer: ActionCreator<Action> = () => ({ type: actionTypes.SWITCH_PLAYER });
