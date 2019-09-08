@@ -4,7 +4,6 @@ import store from './store';
 
 // COMPONENTS
 import { Game } from './components/game';
-// import { TestHooks } from './components/test-hooks';
 
 // STYLE
 import './App.css';
