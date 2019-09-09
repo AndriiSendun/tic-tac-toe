@@ -26,8 +26,11 @@ const Square: React.FC<OwnProps> = (props: OwnProps): JSX.Element => {
       className="square"
       ref={squareRef}
       onClick={() => {
-        setContent(player)
-        dispatch(actions.switchPlayer());
+        if (!content) {
+          setContent(player)
+          dispatch(actions.log({ position: props.number, value: player }));
+          dispatch(actions.switchPlayer());
+        }
       }}
     >
       {content}
