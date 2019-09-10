@@ -8,7 +8,7 @@ const LogItem: React.FC<OwnProps> = (props): JSX.Element => {
 
   return (
     <div className="log-item">
-      <span>{log}</span>
+      <span>Go to {log}</span>
     </div>
   )
 }
