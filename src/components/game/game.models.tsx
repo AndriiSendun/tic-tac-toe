@@ -1,4 +1,4 @@
-interface Log {
+export interface Log {
   position: number,
   value: string,
 }

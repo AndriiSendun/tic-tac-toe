@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Dispatch } from 'redux';
+import { Dispatch, Action, AnyAction } from 'redux';
 
 import actions from '../game.actions';
 
@@ -24,12 +24,13 @@ const Square: React.FC<OwnProps> = (props: OwnProps): JSX.Element => {
   return (
     <div
       className="square"
+      role="button"
       ref={squareRef}
       onClick={() => {
         if (!content) {
           setContent(player)
-          dispatch(actions.log({ position: props.number, value: player }));
-          dispatch(actions.switchPlayer());
+          dispatch<AnyAction>(actions.log({ position: props.number, value: player }));
+          dispatch<Action>(actions.switchPlayer());
         }
       }}
     >

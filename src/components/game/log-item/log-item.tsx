@@ -12,3 +12,5 @@ const LogItem: React.FC<OwnProps> = (props): JSX.Element => {
     </div>
   )
 }
+
+export default LogItem;
