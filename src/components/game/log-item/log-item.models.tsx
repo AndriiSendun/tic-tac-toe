@@ -1,5 +1,5 @@
 interface OwnProps {
-  log: string
+  logNumber: number
 }
 
 export default OwnProps;

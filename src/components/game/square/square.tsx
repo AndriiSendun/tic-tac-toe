@@ -6,6 +6,7 @@ import actions from '../game.actions';
 
 // MODELS
 import { AppState } from '../../../App.model';
+import { Log } from '../game.models';
 
 // STYLES
 import './square.css';
@@ -19,6 +20,7 @@ const Square: React.FC<OwnProps> = (props: OwnProps): JSX.Element => {
   const [content, setContent] = useState<string | null>(null);
 
   const player: string = useSelector((state: AppState) => state.gameReducer.player);
+  // const lol: Log[] = useSelector((state: AppState) => state.gameReducer.logs).find((log: Log) => log.position === props.number);
   const dispatch: Dispatch = useDispatch();
 
   return (

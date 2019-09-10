@@ -4,12 +4,14 @@ import React from 'react';
 import OwnProps from './log-item.models';
 
 const LogItem: React.FC<OwnProps> = (props): JSX.Element => {
-  const { log } = props;
+  const { logNumber } = props;
 
   return (
-    <div className="log-item">
-      <span>Go to {log}</span>
-    </div>
+    <li>
+      <button className="log-item">
+        Go to {logNumber}
+      </button>
+    </li>
   )
 }
 

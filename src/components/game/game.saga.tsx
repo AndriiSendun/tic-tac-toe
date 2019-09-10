@@ -3,7 +3,7 @@ import { AnyAction } from 'redux';
 
 import ACTION_TYPES from './game.action-types';
 
-function* gameWatcher() {
+function* gameWatcher(): IterableIterator<any> {
   yield takeEvery(ACTION_TYPES.LOGGER, gameLogger);
 }
 

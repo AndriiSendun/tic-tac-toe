@@ -13,7 +13,7 @@ const LogsList: React.FC = (): JSX.Element => {
 
   return(
     <ul  className="game-info">
-      {logList.map(log => <LogItem key={log.position} />)}
+      {logList.map((log, index) => <LogItem key={log.position} logNumber={index + 1} />)}
     </ul>
   )
 };
