@@ -13,7 +13,18 @@ const LogsList: React.FC = (): JSX.Element => {
 
   return(
     <ul  className="game-info">
-      {logList.map((log, index) => <LogItem key={log.position} logNumber={index + 1} />)}
+      <li>
+        <button className="log-item">
+          Go to game start
+        </button>
+      </li>
+      {logList.map((log, index) => (
+        <LogItem
+          key={log.position}
+          logNumber={index + 1}
+          logList={logList}
+        />
+      ))}
     </ul>
   )
 };

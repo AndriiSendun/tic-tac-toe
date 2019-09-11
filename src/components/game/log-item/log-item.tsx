@@ -9,7 +9,7 @@ const LogItem: React.FC<OwnProps> = (props): JSX.Element => {
   return (
     <li>
       <button className="log-item">
-        Go to {logNumber}
+        Go to #{logNumber}
       </button>
     </li>
   )
