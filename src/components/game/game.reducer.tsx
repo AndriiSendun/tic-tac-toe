@@ -16,7 +16,7 @@ export default (state = initialState, action: any): GameReducer => {
     case ACTION_TYPES.SAVE_LOG:
       return {
         ...state,
-        logs: [ ...state.logs, action.payload],
+        logs: { ...state.logs, ...action.payload},
       };
     default:
       return state;

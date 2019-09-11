@@ -1,6 +1,5 @@
 export interface Log {
-  position: number,
-  value: string,
+  [index: number]: string,
 }
 
 export interface GameReducer {
