@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import classNames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 import { Dispatch, Action, AnyAction } from 'redux';
 
@@ -18,12 +19,19 @@ const Square: React.FC<OwnProps> = (props: OwnProps): JSX.Element => {
   const squareRef = useRef<HTMLDivElement>(null);
   const [content, setContent] = useState<string | null>(null);
 
-  const player: string = useSelector((state: AppState) => state.gameReducer.player);
   const dispatch: Dispatch = useDispatch();
+
+  const player: string = useSelector((state: AppState) => state.gameReducer.player);
+  const winner: string | null = useSelector((state: AppState) => state.gameReducer.winner);
+
+  const squareClasses = classNames(
+    'square',
+    {'disabled': winner}
+  )
 
   return (
     <div
-      className="square"
+      className={squareClasses}
       role="button"
       ref={squareRef}
       onClick={() => {

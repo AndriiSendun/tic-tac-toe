@@ -4,6 +4,7 @@ import ACTION_TYPES from './game.action-types';
 const initialState: GameReducer = {
   player: 'X',
   logs: [],
+  winner: null,
 }
 
 export default (state = initialState, action: any): GameReducer => {
@@ -17,6 +18,11 @@ export default (state = initialState, action: any): GameReducer => {
       return {
         ...state,
         logs: { ...state.logs, ...action.payload},
+      };
+    case ACTION_TYPES.SET_WINNER:
+      return {
+        ...state,
+        winner: action.payload,
       };
     default:
       return state;

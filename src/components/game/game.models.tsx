@@ -5,4 +5,5 @@ export interface Log {
 export interface GameReducer {
   player: string | null,
   logs: Log[],
+  winner: string | null,
 };
