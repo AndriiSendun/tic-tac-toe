@@ -5,7 +5,7 @@ import { create } from 'react-test-renderer';
 import Square from './square';
 
 describe('Square component', () => {
-  test('Matches th snapshot', () => {
+  test('Matches the snapshot', () => {
     const number: number = 2;
 
     const square = create(<Square number={number}/>);
