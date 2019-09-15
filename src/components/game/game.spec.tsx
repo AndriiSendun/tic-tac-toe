@@ -29,8 +29,9 @@ test('calculate winner', () => {
 describe('game reducer', () => {
   const initState =  {
     player: 'X',
-    logs: [],
+    logs: {},
     winner: null,
+    pointToJump: null,
   }
 
   it('should return the initial state', () => {
@@ -61,7 +62,7 @@ describe('game reducer', () => {
 
     const newState = {
       player: 'X',
-      logs: [{ 0: 'X' }],
+      logs: { 0: 'X' },
       winner: null,
     }
 
@@ -76,7 +77,7 @@ describe('game reducer', () => {
 
     const newState = {
       player: 'X',
-      logs: [],
+      logs: {},
       winner: 'X',
     }
 

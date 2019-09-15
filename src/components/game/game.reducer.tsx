@@ -3,8 +3,9 @@ import ACTION_TYPES from './game.action-types';
 
 const initialState: GameReducer = {
   player: 'X',
-  logs: [],
+  logs: {},
   winner: null,
+  pointToJump: null,
 }
 
 export default (state = initialState, action: any): GameReducer => {
@@ -23,6 +24,11 @@ export default (state = initialState, action: any): GameReducer => {
       return {
         ...state,
         winner: action.payload,
+      };
+    case ACTION_TYPES.JUMP_TO_POINT:
+      return {
+        ...state,
+        pointToJump: action.payload,
       };
     default:
       return state;
