@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Dispatch, Action, AnyAction } from 'redux';
 
 import actions from '../game.actions';
+import { cutObject } from '../game.helpers';
 
 // MODELS
 import { AppState } from '../../../App.model';
@@ -23,37 +24,7 @@ const Square: React.FC<OwnProps> = (props: OwnProps): JSX.Element => {
 
   const point: number = useSelector((state: AppState) => state.gameReducer.pointToJump);
   const logs: Log = useSelector((state: AppState) => state.gameReducer.logs);
-
-  const cutObject = (history: any, limit: any) => {
-    let newHistory: any = {};
-
-    for( let key in history) {
-      if(history.hasOwnProperty(key)) {
-        if(parseInt(key) < limit) {
-          newHistory = {...newHistory, ...history[key]}
-        }
-      }
-    }
-
-    return newHistory;
-  }
-
-  useEffect(() => {
-    if(point) {
-      const croppedLogs = cutObject(logs, point);
-      const newContent: string | null = croppedLogs[props.number] || null;
-
-      setContent(newContent);
-    }
-  }, [point])
-
-  const player: string = useSelector((state: AppState) => state.gameReducer.player);
   const winner: string | null = useSelector((state: AppState) => state.gameReducer.winner);
-
-  const squareClasses = classNames(
-    'square',
-    {'disabled': winner}
-  )
 
   const generateLog = () => {
     const keys = Object.keys(logs);
@@ -65,6 +36,31 @@ const Square: React.FC<OwnProps> = (props: OwnProps): JSX.Element => {
       }
     });
   }
+
+  const getNewContent = (croppedLogs: Log[], number: number): any => {
+    const newContent = croppedLogs.find((log: Log) => {
+      var key = Object.keys(log);
+      return parseInt(key[0]) === number;
+    });
+
+    return (newContent && newContent[number]) || '';
+  }
+
+  useEffect(() => {
+    if(point) {
+      const croppedLogs = cutObject(logs, point);
+      const newContent: string = getNewContent(croppedLogs, props.number);
+
+      setContent(newContent);
+    }
+  }, [point])
+
+  const player: string = useSelector((state: AppState) => state.gameReducer.player);
+
+  const squareClasses = classNames(
+    'square',
+    {'disabled': winner}
+  )
 
   return (
     <div

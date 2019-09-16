@@ -1,6 +1,11 @@
 import { GameReducer } from './game.models';
 import ACTION_TYPES from './game.action-types';
 
+import { cutObject } from './game.helpers';
+
+// MODELS
+import { Log } from './game.models';
+
 const initialState: GameReducer = {
   player: 'X',
   logs: {},
@@ -16,9 +21,12 @@ export default (state = initialState, action: any): GameReducer => {
         player: state.player === 'X' ? 'O' : 'X'
       };
     case ACTION_TYPES.SAVE_LOG:
+        const croppedLogs: Log | null = state.pointToJump ? cutObject(state.logs, state.pointToJump) : null;
+
       return {
         ...state,
-        logs: { ...state.logs, ...action.payload},
+        logs: { ...(state.pointToJump ? croppedLogs : state.logs), ...action.payload},
+        pointToJump: null,
       };
     case ACTION_TYPES.SET_WINNER:
       return {

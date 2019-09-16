@@ -16,11 +16,11 @@ const GameInfo: React.FC = (): JSX.Element => {
   const dispatch: Dispatch = useDispatch();
 
   const player: string = useSelector((state: AppState) => state.gameReducer.player);
-  const logs: Log[] = useSelector((state: AppState) => state.gameReducer.logs);
+  const logs: Log = useSelector((state: AppState) => state.gameReducer.logs);
   const winner: string | null = useSelector((state: AppState) => state.gameReducer.winner);
 
   useEffect(() => {
-    const result = calculateWinner(logs);
+    const result: string | null = calculateWinner(logs);
 
     if (result) {
       dispatch(actions.setWinner(result));
