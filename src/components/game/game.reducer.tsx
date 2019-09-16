@@ -22,10 +22,12 @@ export default (state = initialState, action: any): GameReducer => {
       };
     case ACTION_TYPES.SAVE_LOG:
         const croppedLogs: Log | null = state.pointToJump ? cutObject(state.logs, state.pointToJump) : null;
+        const newLogs: Log = { ...(state.pointToJump ? croppedLogs : state.logs) };
+        const logsLength: number = Object.values(newLogs).length;
 
       return {
         ...state,
-        logs: { ...(state.pointToJump ? croppedLogs : state.logs), ...action.payload},
+        logs: { ...newLogs, [logsLength]: action.payload },
         pointToJump: null,
       };
     case ACTION_TYPES.SET_WINNER:

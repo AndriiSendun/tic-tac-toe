@@ -26,16 +26,18 @@ const Square: React.FC<OwnProps> = (props: OwnProps): JSX.Element => {
   const logs: Log = useSelector((state: AppState) => state.gameReducer.logs);
   const winner: string | null = useSelector((state: AppState) => state.gameReducer.winner);
 
-  const generateLog = () => {
-    const keys = Object.keys(logs);
-    const orderNumber = keys && keys.length;
+  // const generateLog = () => {
+  //   const keys = Object.keys(logs);
+  //   const orderNumber = keys && keys.length;
 
-    return ({
-      [orderNumber]: {
-        [props.number]:player
-      }
-    });
-  }
+  //   return ({
+  //     [orderNumber]: {
+  //       [props.number]:player
+  //     }
+  //   });
+  // }
+
+  const generateLog = () => ({ [props.number]:player  });
 
   const getNewContent = (croppedLogs: Log[], number: number): any => {
     const newContent = croppedLogs.find((log: Log) => {
